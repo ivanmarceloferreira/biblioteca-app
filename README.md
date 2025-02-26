@@ -15,3 +15,6 @@
 npm run dev
 
 http://localhost:3000/
+
+---
+npm install
