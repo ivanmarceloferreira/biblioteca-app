@@ -2,7 +2,7 @@
 2- npm install typescript --save-dev<br>
 3- npx tsc --init<br>
 4- npm install express sequelize mysql2<br>
-5- npm install @types/express @types/sequelize @types/node --save-dev<br>
+5- npm install @types/express@4.17.21 @types/sequelize @types/node --save-dev<br>
 6- npm install ts-node --save-dev<br>
 
 -- no package.json
