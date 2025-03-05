@@ -63,3 +63,23 @@ export const updateUser = async (
     }
     
 }
+
+// método que destrói
+export const destroyUserById = async (
+    req: Request<{ id: string }>, 
+    res: Response) => {
+    
+        try {
+            const user = await UserModel.findByPk(req.params.id)
+            if (!user) {
+                return res.status(404)
+                    .json({error: 'User not found'})
+            }
+    
+            await user.destroy()
+    
+            res.status(204).send()
+        } catch (error) {
+            res.status(500).json('Erro interno no servidor ' + error)
+        }
+}
