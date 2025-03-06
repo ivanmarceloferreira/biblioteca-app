@@ -3,6 +3,6 @@ import { getAll } from '../controllers/bookController'
 
 const router = express.Router();
 
-router.get('/users', getAll)
+router.get('/books', getAll)
 
 export default router;
