@@ -3,6 +3,7 @@ import sequelize from './config/database'
 import userRoutes from './routes/userRoutes'
 import bookRoutes from './routes/bookRoutes'
 import collectionRoutes from './routes/collectionRoutes'
+import loginRoutes from './routes/loginRoutes'
 
 const app = express()
 const port = 3000
@@ -15,6 +16,7 @@ app.use(express.json())
 app.use(userRoutes)
 app.use(bookRoutes)
 app.use(collectionRoutes)
+app.use(loginRoutes)
 
 // sync database
 sequelize
