@@ -42,10 +42,11 @@ export const updateUser = async (
     res: Response) => {
 
     try {
-        const { name } = req.body
-        if (!name || name === '') {
+        const { name, email, password } = req.body
+
+        if (!name || !email || !password) {
             return res.status(400)
-                .json({error: 'Name is required'})
+                .json({error: 'Values required'})
         }
 
         const user = await UserModel.findByPk(req.params.id)
@@ -55,6 +56,8 @@ export const updateUser = async (
         }
 
         user.name = name
+        user.email = email
+        user.password = password
         
         await user.save()
         res.status(201).json(user)
