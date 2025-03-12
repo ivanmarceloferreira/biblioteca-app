@@ -21,14 +21,14 @@ export const getUserById = async (
 export const createUser = async (req: Request, res: Response) => {
 
     try {
-        const { name } = req.body
+        const { name, email, password } = req.body
 
-        if (!name || name === '') {
+        if (!name || !email || !password) {
             return res.status(400)
-                .json({error: 'Name is required'})
+                .json({error: 'Values required'})
         }
         
-        const user = await UserModel.create({ name })
+        const user = await UserModel.create({ name, email, password})
         res.status(201).json(user)
     } catch (error) {
         res.status(500).json('Erro interno no servidor ' + error)
