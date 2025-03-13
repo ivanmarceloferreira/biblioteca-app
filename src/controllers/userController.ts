@@ -44,6 +44,8 @@ export const updateUser = async (
 
     try {
         const { name, email, password } = req.body
+        const loggedUser = req.body.user;
+        console.log('logged', loggedUser)
 
         if (!name || !email || !password) {
             return res.status(400)
@@ -59,6 +61,7 @@ export const updateUser = async (
         user.name = name
         user.email = email
         user.password = password
+        user.updatedBy = loggedUser.user.id
         
         await user.save()
         res.status(201).json(user)
