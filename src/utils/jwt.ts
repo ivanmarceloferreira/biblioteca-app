@@ -8,6 +8,6 @@ export const generateToken = (user: UserModel): string => {
     return jwt.sign({ user }, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN })
 }
 
-export const verifyToken = (token: string) => {
+export const verifyToken = (token: string) : any => {
     return jwt.verify(token, JWT_SECRET)
 }
