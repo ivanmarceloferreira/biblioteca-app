@@ -1,0 +1,11 @@
+name: Testing
+run-name: ${{ github.actor }} is testing 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: npm install
+      - run: npm run test
